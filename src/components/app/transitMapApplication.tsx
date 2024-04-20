@@ -28,13 +28,13 @@ const drawingLayer = new VectorLayer({
 const trainStationStyle = [
   new Style({
     image: new Circle({
-      fill: new Fill({ color: "lightgray" }),
+      fill: new Fill({ color: "white" }),
       stroke: new Stroke({ color: "black", width: 2 }),
       radius: 20,
     }),
   }),
   new Style({
-    image: new Icon({ src: "icons/subway.svg" }),
+    image: new Icon({ src: "/icons/subway.svg" }),
   }),
 ];
 
@@ -47,7 +47,7 @@ const ferryStyle = [
     }),
   }),
   new Style({
-    image: new Icon({ src: "icons/directions_boat.svg" }),
+    image: new Icon({ src: "/icons/directions_boat.svg" }),
   }),
 ];
 
