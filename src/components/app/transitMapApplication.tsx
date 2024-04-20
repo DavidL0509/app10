@@ -28,13 +28,26 @@ const drawingLayer = new VectorLayer({
 const trainStationStyle = [
   new Style({
     image: new Circle({
-      fill: new Fill({ color: "white" }),
+      fill: new Fill({ color: "lightgray" }),
       stroke: new Stroke({ color: "black", width: 2 }),
       radius: 20,
     }),
   }),
   new Style({
     image: new Icon({ src: "icons/subway.svg" }),
+  }),
+];
+
+const ferryStyle = [
+  new Style({
+    image: new Circle({
+      fill: new Fill({ color: "lightblue" }),
+      stroke: new Stroke({ color: "black", width: 2 }),
+      radius: 20,
+    }),
+  }),
+  new Style({
+    image: new Icon({ src: "icons/directions_boat.svg" }),
   }),
 ];
 
@@ -60,11 +73,20 @@ export function TransitMapApplication() {
     });
   }
 
+  function handleClickAddFerry() {
+    const draw = new Draw({ type: "Point", source: drawingSource });
+    map.addInteraction(draw);
+    drawingSource.on("addfeature", (event) => {
+      map.removeInteraction(draw);
+      event.feature?.setStyle(ferryStyle);
+    });
+  }
+
   return (
     <>
       <header>
         <button onClick={handleClickAddStation}>Add train station</button>
-        <button>Add ferry</button>
+        <button onClick={handleClickAddFerry}>Add ferry</button>
         <button>Add circle</button>
       </header>
       <div ref={mapRef}></div>
