@@ -34,7 +34,7 @@ const trainStationStyle = [
     }),
   }),
   new Style({
-    image: new Icon({ src: "/icons/subway.svg" }),
+    image: new Icon({ src: "icons/subway.svg" }),
   }),
 ];
 
