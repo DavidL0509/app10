@@ -11,7 +11,7 @@ import "./app.css";
 import { Draw } from "ol/interaction";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
-import { Circle, Fill, Style } from "ol/style";
+import { Circle, Fill, Icon, Stroke, Style } from "ol/style";
 
 useGeographic();
 
@@ -42,14 +42,20 @@ export function TransitMapApplication() {
     map.addInteraction(new Draw({ type: "Point", source: drawingSource }));
     drawingSource.on("addfeature", (event) => {
       console.log(event);
-      event.feature?.setStyle(
+      event.feature?.setStyle([
         new Style({
           image: new Circle({
-            fill: new Fill({ color: "red" }),
+            fill: new Fill({ color: "white" }),
+            stroke: new Stroke({ color: "black", width: 2 }),
             radius: 20,
           }),
         }),
-      );
+        new Style({
+          image: new Icon({
+            src: "/icons/subway.svg",
+          }),
+        }),
+      ]);
     });
   }
 
