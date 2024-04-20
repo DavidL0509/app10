@@ -52,7 +52,7 @@ export function TransitMapApplication() {
         }),
         new Style({
           image: new Icon({
-            src: "/icons/subway.svg",
+            src: "app10/icons/subway.svg",
           }),
         }),
       ]);
