@@ -1,23 +1,24 @@
 {
   "devDependencies": {
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.23",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.8"
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7"
   },
   "dependencies": {
     "ol": "^9.1.0",
+    "ol-mapbox-style": "^12.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ts-proto": "^1.172.0"
+    "ts-proto": "^1.171.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "npm test && vite build",
-    "test": "prettier --check . && tsc --noEmit",
     "prepare": "husky",
+    "test": "tsc --noEmit && prettier --check .",
     "generate:win": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto.cmd --ts_proto_out=generated/ --ts_proto_opt=esModuleInterop=true ./gtfs-realtime.proto"
   }
 }
